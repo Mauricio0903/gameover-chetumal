@@ -252,7 +252,8 @@ h2 .dim{color:var(--w4);}
 
 /* ── BARBEROS — foto izquierda, info derecha ── */
 #barberos{background:var(--n1);}
-.barberos-wrap{display:flex;flex-direction:column;gap:1px;}
+.barberos-wrap{display:flex;flex-direction:column;gap:0;border-radius:var(--rl);overflow:hidden;border:1px solid var(--n3);}
+.barbero{border:none!important;border-radius:0!important;}
 .barbero{
   display:grid;grid-template-columns:1fr 1fr;
   background:var(--n2);border:1px solid var(--n3);
@@ -586,7 +587,11 @@ footer{
   .nav-links{display:none;}
   .ham{display:flex;}
   section{padding:4.5rem 1.4rem;}
-  #hero{padding-top:70px;}
+  #hero{padding-top:70px;min-height:100svh;}
+  .hero-cont{padding:0 1rem;}
+  /* Quitar espacio negro entre secciones */
+  #barberos{padding-top:3rem;padding-bottom:3rem;}
+  section{padding:3.5rem 1.4rem;}
   .hero-h1{font-size:clamp(2.4rem,11vw,4.5rem);letter-spacing:.06em;}
   .hero-strip{
     position:relative;padding:.9rem 1.4rem;
@@ -754,7 +759,7 @@ footer{
         </div>
       </div>
     </div>
-    <div class="barbero reverse" style="margin-top:1px;">
+    <div class="barbero reverse" style="margin-top:0;border-top:1px solid var(--n3)!important;border-radius:0 0 var(--rl) var(--rl)!important;">
       <div class="bc-img"><img src="go_equipo.jpg" alt="Wilbert" loading="lazy" style="object-position:right center;"></div>
       <div class="bc-info">
         <p class="bc-num">02</p>
@@ -954,7 +959,7 @@ footer{
       <p class="rcta-h">¿Ya nos visitaste?</p>
       <p class="rcta-p">Déjanos tu reseña en Google — tarda menos de un minuto y ayuda a otros a encontrarnos.</p>
     </div>
-    <a href="https://search.google.com/local/writereview?placeid=ChIJ_game_over_chetumal" target="_blank" class="btn-review">⭐ Dejar reseña en Google</a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Game+Over+Estudio+Chetumal&query_place_id=ChIJ" target="_blank" onclick="window.open('https://search.google.com/local/writereview?ludocid=6509601568254299869','_blank');return false;" class="btn-review">⭐ Dejar reseña en Google</a>
   </div>
 </section>
 
@@ -1004,7 +1009,7 @@ footer{
       </div>
     </div>
     <div class="mapa-box rev d1">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.8!2d-88.3150!3d18.4990!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAv.%20San%20Salvador%20esq.%20Sicilia%2C%20Chetumal!5e0!3m2!1ses-419!2smx!4v1" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d931.0!2d-88.31850!3d18.50280!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5bab68fd0d9fe3%3A0x5a7de18b96c2e01d!2sGAME%20OVER%20chetumal!5e0!3m2!1ses-419!2smx!4v1748650000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
