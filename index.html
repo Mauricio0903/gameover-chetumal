@@ -4,506 +4,621 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Game Over Estudio – Barbería | Chetumal, Q.R.</title>
-<meta name="description" content="Barbería Game Over Estudio en Chetumal. Cortes, degradados y diseños por Manuel y Wilbert. AV. San Salvador esquina Sicilia. Abierto todos los días.">
+<meta name="description" content="Barbería Game Over Estudio en Chetumal. Cortes, degradados y diseños por Manuel y Wilbert. AV. San Salvador esquina Sicilia. Abierto todos los días 10AM–10PM.">
 <script type="application/ld+json">
-{
-  "@context":"https://schema.org","@type":"HairSalon",
-  "name":"Game Over Estudio","description":"Barbería profesional en Chetumal, Quintana Roo. Cortes, degradados y diseños.",
-  "address":{"@type":"PostalAddress","streetAddress":"AV. San Salvador esquina Sicilia, Col. Italia San Salvador","addressLocality":"Chetumal","addressRegion":"Quintana Roo","postalCode":"77035","addressCountry":"MX"},
-  "telephone":"+529831040409","openingHours":"Mo-Su 10:00-22:00","priceRange":"$$",
-  "aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"3"},
-  "sameAs":["https://www.facebook.com/p/GAME-OVER-chetumal-100068312347244/","https://www.instagram.com/game_overbarb/"]
-}
+{"@context":"https://schema.org","@type":"HairSalon","name":"Game Over Estudio","description":"Barbería profesional en Chetumal, Quintana Roo.","address":{"@type":"PostalAddress","streetAddress":"AV. San Salvador esquina Sicilia","addressLocality":"Chetumal","addressRegion":"Quintana Roo","postalCode":"77035","addressCountry":"MX"},"telephone":"+529831040409","openingHours":"Mo-Su 10:00-22:00","priceRange":"$$","aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"3"},"sameAs":["https://www.facebook.com/p/GAME-OVER-chetumal-100068312347244/","https://www.instagram.com/game_overbarb/"]}
 </script>
 <meta property="og:title" content="Game Over Estudio – Barbería Chetumal">
 <meta property="og:description" content="Cortes, degradados y diseños. Escríbele directo a tu barbero.">
 <meta property="og:image" content="logo_gameover.webp">
-<meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="favicon_go.png">
 <link rel="apple-touch-icon" href="favicon_go.png">
 <link rel="canonical" href="https://gameover-chetumal.vercel.app/">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --n:#050505;
-  --n1:#0f0f0f;
-  --n2:#1a1a1a;
-  --n3:#2a2a2a;
-  --n4:#3a3a3a;
-  --w:#ffffff;
-  --w2:#f5f5f5;
-  --w3:#e0e0e0;
-  --w4:#aaaaaa;
-  --gold:#c9a84c;
-  --gold-l:#e8c96a;
-  --r:6px;
-  --rl:14px;
+:root {
+  --n:     #060504;
+  --n1:    #0d0b09;
+  --n2:    #181410;
+  --n3:    #2a2219;
+  --n4:    #3d3228;
+  --cap:   #a07850;
+  --cap-l: #c4976a;
+  --cap-d: #6b4f30;
+  --gold:  #c9a96e;
+  --cream: #f0e8d8;
+  --w:     #ffffff;
+  --w2:    #ece6dc;
+  --w3:    #b8a898;
+  --w4:    #7a6a58;
+  --r:     8px;
+  --rl:    18px;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Space Grotesk',sans-serif;background:var(--n);color:var(--w);overflow-x:hidden;}
-img{display:block;max-width:100%;height:auto;}
+body{font-family:'DM Sans',sans-serif;background:var(--n);color:var(--w);overflow-x:hidden;}
+img{display:block;max-width:100%;}
 a{text-decoration:none;color:inherit;}
-::selection{background:var(--gold);color:var(--n);}
+::selection{background:var(--cap);color:var(--n);}
 
-/* ── TOP BAR ── */
-.topbar{
-  background:var(--n1);border-bottom:1px solid var(--n3);
-  padding:.55rem 2.5rem;
-  display:flex;justify-content:space-between;align-items:center;
-  font-size:.68rem;letter-spacing:.1em;color:var(--w4);
-  position:fixed;top:0;left:0;right:0;z-index:901;
+/* ── CURSOR CUSTOM ── */
+*{cursor:none;}
+.cursor{
+  position:fixed;width:8px;height:8px;border-radius:50%;
+  background:var(--cap-l);pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);transition:transform .1s;
+  mix-blend-mode:difference;
 }
-.topbar-left{display:flex;gap:2rem;}
-.topbar-right{display:flex;gap:2rem;}
-.topbar a{color:var(--w4);transition:color .2s;}
-.topbar a:hover{color:var(--w);}
-.tb-sep{color:var(--n4);}
+.cursor-ring{
+  position:fixed;width:32px;height:32px;border-radius:50%;
+  border:1px solid rgba(196,151,106,.4);pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:width .3s,height .3s,border-color .3s,transform .15s;
+}
 
 /* ── NAV ── */
 #nav{
-  position:fixed;top:32px;left:0;right:0;z-index:900;
-  height:62px;display:flex;align-items:center;justify-content:space-between;
-  padding:0 2.5rem;
-  transition:background .4s,border-color .4s,top .4s;
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  height:70px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 3rem;
+  transition:background .5s,border-color .5s;
   border-bottom:1px solid transparent;
 }
 #nav.scrolled{
-  background:rgba(5,5,5,.97);
-  backdrop-filter:blur(20px);
-  border-bottom-color:var(--n3);
-  top:0;
+  background:rgba(6,5,4,.92);
+  backdrop-filter:blur(24px) saturate(1.4);
+  -webkit-backdrop-filter:blur(24px) saturate(1.4);
+  border-bottom-color:rgba(160,120,80,.15);
 }
-.nav-logo{display:flex;align-items:center;gap:.7rem;}
-.nav-logo img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:1px solid var(--n4);}
-.nav-logo-nom{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:.06em;color:var(--w);}
-.nav-logo-sub{font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--w4);display:block;}
-.nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
-.nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--w4);transition:color .2s;}
-.nav-links a:hover{color:var(--w);}
+.nav-logo{display:flex;align-items:center;gap:.75rem;}
+.nav-logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1px solid rgba(160,120,80,.3);}
+.nav-logo-nom{font-family:'Cormorant',serif;font-size:1.2rem;font-weight:600;letter-spacing:.08em;color:var(--cream);}
+.nav-logo-sub{font-size:.5rem;letter-spacing:.25em;text-transform:uppercase;color:var(--w4);display:block;margin-top:1px;}
+.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none;}
+.nav-links a{font-size:.68rem;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--w3);transition:color .2s;}
+.nav-links a:hover{color:var(--cream);}
 .nav-cta{
-  background:var(--w)!important;color:var(--n)!important;
+  background:rgba(160,120,80,.15)!important;
+  border:1px solid rgba(160,120,80,.35)!important;
+  color:var(--cap-l)!important;
   padding:.42rem 1.2rem;border-radius:var(--r);
-  font-weight:600!important;transition:background .2s,transform .15s!important;
+  font-weight:500!important;backdrop-filter:blur(8px);
+  transition:background .2s,border-color .2s!important;
 }
-.nav-cta:hover{background:var(--w2)!important;transform:translateY(-1px);}
-.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
-.ham span{display:block;width:22px;height:1.5px;background:var(--w);border-radius:2px;transition:transform .3s,opacity .3s;}
-.ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-cta:hover{background:rgba(160,120,80,.25)!important;border-color:var(--cap)!important;}
+.ham{display:none;flex-direction:column;gap:5px;cursor:none;background:none;border:none;padding:4px;}
+.ham span{display:block;width:22px;height:1px;background:var(--cream);border-radius:2px;transition:transform .3s,opacity .3s;}
+.ham.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
 .ham.open span:nth-child(2){opacity:0;}
-.ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.ham.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
 .mob-menu{
   display:none;position:fixed;inset:0;z-index:800;
-  background:rgba(5,5,5,.99);
+  background:rgba(6,5,4,.98);backdrop-filter:blur(20px);
   flex-direction:column;align-items:center;justify-content:center;gap:2rem;
 }
 .mob-menu.open{display:flex;}
-.mob-menu a{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:700;color:var(--w);letter-spacing:.04em;}
-.mob-menu a:hover{color:var(--w3);}
-.mob-cta{
-  font-family:'Space Grotesk',sans-serif!important;
-  font-size:.9rem!important;font-weight:600!important;
-  background:var(--w);color:var(--n)!important;
+.mob-menu a{font-family:'Cormorant',serif;font-size:3rem;font-weight:300;color:var(--cream);letter-spacing:.06em;transition:color .2s;}
+.mob-menu a:hover{color:var(--cap-l);}
+.mob-cta-m{
+  font-family:'DM Sans',sans-serif!important;font-size:.85rem!important;
+  font-weight:500!important;letter-spacing:.15em!important;text-transform:uppercase;
+  border:1px solid var(--cap)!important;color:var(--cap-l)!important;
   padding:.85rem 2.5rem;border-radius:var(--r);
-  letter-spacing:.08em!important;text-transform:uppercase;
 }
 
-/* ── HERO ── */
+/* ── HERO — centrado con foto de fondo ── */
 #hero{
-  height:100svh;min-height:620px;
-  position:relative;display:flex;align-items:center;
-  padding:0 2.5rem;overflow:hidden;padding-top:94px;
+  height:100svh;min-height:640px;
+  position:relative;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  overflow:hidden;
 }
 .hero-bg{
   position:absolute;inset:0;
-  background:url('go_local.jpg') center/cover no-repeat;
-  filter:brightness(.18) grayscale(60%);
-  animation:zoom 24s ease-in-out infinite alternate;
+  background:url('go_corte1.jpg') center 30%/cover no-repeat;
+  filter:brightness(.22) saturate(.6);
+  transform:scale(1.06);
+  animation:hzoom 22s ease-in-out infinite alternate;
 }
-@keyframes zoom{from{transform:scale(1.06)}to{transform:scale(1)}}
-.hero-grad{
+@keyframes hzoom{from{transform:scale(1.06)}to{transform:scale(1)}}
+.hero-vignette{
   position:absolute;inset:0;
-  background:linear-gradient(to right,rgba(5,5,5,.95) 40%,rgba(5,5,5,.3) 100%);
+  background:radial-gradient(ellipse at center,transparent 30%,rgba(6,5,4,.85) 100%);
 }
-.hero-cont{position:relative;z-index:2;max-width:640px;}
-/* Eyebrow */
-.eyebrow{
-  display:inline-flex;align-items:center;gap:.7rem;
-  font-size:.62rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:1.4rem;
+.hero-top-line{
+  position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,rgba(160,120,80,.4),transparent);
 }
-.eyebrow-line{width:24px;height:1px;background:var(--gold);}
-/* Título */
-.hero-h1{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(3.5rem,8vw,7rem);
-  font-weight:800;line-height:.95;letter-spacing:-.02em;
-  color:var(--w);margin-bottom:1.4rem;
+.hero-bottom-line{
+  position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,rgba(160,120,80,.3),transparent);
 }
-.hero-h1 span{display:block;}
-.hero-h1 .outline{
-  -webkit-text-stroke:1.5px var(--w);
-  color:transparent;
-}
-.hero-desc{
-  font-size:.95rem;font-weight:300;line-height:1.85;
-  color:var(--w4);max-width:400px;margin-bottom:2.2rem;
-}
-.hero-btns{display:flex;gap:.9rem;flex-wrap:wrap;align-items:center;}
-.btn-prim{
-  display:inline-flex;align-items:center;gap:.6rem;
-  background:var(--w);color:var(--n);
-  padding:.88rem 1.9rem;border-radius:var(--r);
-  font-size:.8rem;font-weight:600;letter-spacing:.05em;
-  transition:background .2s,transform .2s;
-}
-.btn-prim:hover{background:var(--w2);transform:translateY(-2px);}
-.btn-sec{
-  display:inline-flex;align-items:center;gap:.5rem;
-  border:1px solid var(--n4);color:var(--w3);
-  padding:.88rem 1.9rem;border-radius:var(--r);
-  font-size:.8rem;font-weight:400;
-  transition:border-color .2s,color .2s;
-}
-.btn-sec:hover{border-color:var(--w3);color:var(--w);}
 
-/* Rating hero */
+/* Info bottom strip — liquid glass */
+.hero-strip{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(13,11,9,.55);
+  backdrop-filter:blur(18px) saturate(1.3);
+  -webkit-backdrop-filter:blur(18px) saturate(1.3);
+  border-top:1px solid rgba(160,120,80,.18);
+  padding:.75rem 3rem;
+  display:flex;justify-content:center;gap:3rem;
+  z-index:2;
+}
+.hstrip-item{
+  display:flex;align-items:center;gap:.6rem;
+  font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--w3);
+}
+.hstrip-icon{color:var(--cap-l);font-size:.8rem;}
+
+.hero-cont{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;}
+
+/* Separador decorativo */
+.hero-ornament{
+  display:flex;align-items:center;gap:.9rem;
+  margin-bottom:1.5rem;color:var(--cap-l);font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;
+}
+.orn-line{width:48px;height:1px;background:linear-gradient(to right,transparent,var(--cap));}
+.orn-line.r{background:linear-gradient(to left,transparent,var(--cap));}
+
+/* Título hero */
+.hero-h1{
+  font-family:'Cormorant',serif;
+  font-size:clamp(3.5rem,9vw,8.5rem);
+  font-weight:300;line-height:.95;letter-spacing:.12em;
+  color:var(--cream);
+  margin-bottom:.4rem;
+  animation:fadeUp .9s ease both;
+}
+.hero-h1 .italic{font-style:italic;color:var(--cap-l);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.hero-sub-title{
+  font-family:'Cormorant',serif;
+  font-size:clamp(1rem,2.5vw,1.6rem);
+  font-weight:300;font-style:italic;
+  color:var(--cap);letter-spacing:.2em;
+  margin-bottom:2.5rem;
+  animation:fadeUp .9s .15s ease both;
+}
 .hero-rating{
   display:flex;align-items:center;gap:.8rem;
-  margin-top:2.5rem;padding-top:2.5rem;
-  border-top:1px solid var(--n3);
+  margin-bottom:2.5rem;
+  animation:fadeUp .9s .25s ease both;
 }
-.hr-stars{color:var(--gold);font-size:.9rem;letter-spacing:2px;}
-.hr-txt{font-size:.75rem;color:var(--w4);}
-.hr-num{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--w);}
+.hr-stars{color:var(--gold);font-size:.95rem;letter-spacing:3px;}
+.hr-sep{width:1px;height:16px;background:var(--n4);}
+.hr-txt{font-size:.72rem;color:var(--w4);letter-spacing:.06em;}
 
-/* Scroll hint */
-.scroll-hint{
-  position:absolute;bottom:2.5rem;left:2.5rem;z-index:2;
-  display:flex;align-items:center;gap:.7rem;
-  color:var(--n4);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
-  animation:sh 2s ease-in-out infinite;
+/* Botones hero */
+.hero-btns{
+  display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;
+  animation:fadeUp .9s .35s ease both;
 }
-.sh-line{width:28px;height:1px;background:var(--n4);}
-@keyframes sh{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
-
-/* ── SECCIONES BASE ── */
-section{padding:6rem 2.5rem;position:relative;z-index:1;}
-.eyebrow-sm{
+.btn-wa{
+  display:inline-flex;align-items:center;gap:.65rem;
+  background:#25d366;color:#fff;
+  padding:.9rem 1.9rem;border-radius:var(--r);
+  font-size:.78rem;font-weight:500;
+  box-shadow:0 4px 24px rgba(37,211,102,.25);
+  transition:transform .2s,box-shadow .2s,filter .2s;
+}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(37,211,102,.35);filter:brightness(1.05);}
+.btn-out{
   display:inline-flex;align-items:center;gap:.6rem;
-  font-size:.6rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:.9rem;
+  border:1px solid rgba(160,120,80,.35);color:var(--cap-l);
+  padding:.9rem 1.9rem;border-radius:var(--r);
+  font-size:.78rem;font-weight:400;
+  background:rgba(160,120,80,.06);backdrop-filter:blur(8px);
+  transition:border-color .2s,background .2s,color .2s;
 }
-.eyebrow-sm::before{content:'';width:14px;height:1px;background:var(--gold);}
-h2{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(2.2rem,4.5vw,3.8rem);
-  font-weight:800;line-height:1;letter-spacing:-.02em;
-  color:var(--w);margin-bottom:.5rem;
-}
-h2 .dim{color:var(--w4);}
-.section-head{margin-bottom:3.5rem;}
+.btn-out:hover{border-color:var(--cap);background:rgba(160,120,80,.12);color:var(--cream);}
 
-/* ── BARBEROS ── */
+/* Scroll indicator */
+.scroll-ind{
+  position:absolute;bottom:4.5rem;right:3rem;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  color:var(--w4);font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;
+  animation:bob 2.2s ease-in-out infinite;
+}
+.sind-line{width:1px;height:36px;background:linear-gradient(to bottom,transparent,var(--cap));}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+
+/* ── SECCIÓN BASE ── */
+section{padding:6rem 3rem;position:relative;z-index:1;}
+.etiqueta{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-size:.58rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--cap);margin-bottom:.9rem;
+}
+.etiqueta::before{content:'';width:20px;height:1px;background:var(--cap);}
+h2{
+  font-family:'Cormorant',serif;
+  font-size:clamp(2.2rem,4.5vw,3.8rem);
+  font-weight:300;line-height:1.05;letter-spacing:-.01em;
+  color:var(--cream);margin-bottom:.4rem;
+}
+h2 em{font-style:italic;color:var(--cap-l);}
+h2 .dim{color:var(--w4);}
+.sec-head{margin-bottom:3.5rem;}
+
+/* ── BARBEROS — foto izquierda, info derecha ── */
 #barberos{background:var(--n1);}
-.barberos-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--n3);}
-.barbero-card{
-  background:var(--n1);
+.barberos-wrap{display:flex;flex-direction:column;gap:1px;}
+.barbero{
   display:grid;grid-template-columns:1fr 1fr;
-  transition:background .3s;
+  background:var(--n2);border:1px solid var(--n3);
+  border-radius:var(--rl);overflow:hidden;
+  transition:border-color .4s;
 }
-.barbero-card:hover{background:var(--n2);}
-.bc-foto{
-  height:420px;overflow:hidden;
+.barbero:hover{border-color:rgba(160,120,80,.3);}
+.barbero.reverse{direction:rtl;}
+.barbero.reverse .bc-info{direction:ltr;}
+.barbero.reverse .bc-img{direction:ltr;}
+.bc-img{
+  height:420px;overflow:hidden;position:relative;
 }
-.bc-foto img{
+.bc-img img{
   width:100%;height:100%;object-fit:cover;object-position:top center;
-  filter:grayscale(30%);transition:filter .5s,transform .5s;
+  filter:grayscale(20%) brightness(.85);
+  transition:filter .6s,transform .6s;
 }
-.barbero-card:hover .bc-foto img{filter:grayscale(0%);transform:scale(1.03);}
+.barbero:hover .bc-img img{filter:grayscale(0%) brightness(.95);transform:scale(1.04);}
 .bc-info{
-  padding:2.5rem 2rem;
-  display:flex;flex-direction:column;justify-content:space-between;
+  padding:3rem 2.5rem;
+  display:flex;flex-direction:column;justify-content:center;gap:1.5rem;
+  background:var(--n2);
 }
 .bc-num{
-  font-family:'Syne',sans-serif;font-size:3.5rem;font-weight:800;
-  color:var(--n3);line-height:1;margin-bottom:auto;
+  font-family:'Cormorant',serif;font-size:4rem;font-weight:300;
+  color:var(--n4);line-height:1;letter-spacing:.04em;
 }
-.bc-nom{
-  font-family:'Syne',sans-serif;
-  font-size:2.2rem;font-weight:800;letter-spacing:-.01em;
-  color:var(--w);margin-bottom:.2rem;
-}
-.bc-handle{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;}
-.bc-note{font-size:.78rem;color:var(--w4);line-height:1.6;margin-bottom:1.6rem;}
+.bc-nom{font-family:'Cormorant',serif;font-size:2.8rem;font-weight:300;color:var(--cream);letter-spacing:.04em;line-height:1;}
+.bc-handle{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cap);margin-top:.2rem;}
+.bc-bio{font-size:.85rem;font-weight:300;color:var(--w4);line-height:1.8;max-width:320px;}
+.bc-btns{display:flex;flex-direction:column;gap:.6rem;margin-top:.5rem;}
 .btn-wa-bc{
   display:flex;align-items:center;justify-content:center;gap:.6rem;
   background:#25d366;color:#fff;
   padding:.78rem;border-radius:var(--r);
-  font-size:.78rem;font-weight:600;
+  font-size:.78rem;font-weight:500;
+  box-shadow:0 3px 14px rgba(37,211,102,.2);
   transition:filter .2s,transform .2s;
 }
 .btn-wa-bc:hover{filter:brightness(1.1);transform:translateY(-2px);}
 
-/* ── SERVICIOS ── */
-#servicios{background:var(--n);}
-.servicios-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;background:var(--n3);
-  border:1px solid var(--n3);border-radius:var(--rl);overflow:hidden;
+/* ── NOSOTROS ── */
+#nosotros{
+  background:var(--n);
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
 }
-.srv{
-  background:var(--n1);padding:2rem 1.6rem;
+.nos-img-wrap{position:relative;}
+.nos-img{
+  width:100%;height:540px;object-fit:cover;
+  border-radius:var(--rl);filter:grayscale(15%) brightness(.8);
+}
+/* Glass badge */
+.nos-badge{
+  position:absolute;bottom:2rem;right:-2rem;
+  background:rgba(13,11,9,.7);
+  backdrop-filter:blur(20px) saturate(1.5);
+  -webkit-backdrop-filter:blur(20px) saturate(1.5);
+  border:1px solid rgba(160,120,80,.2);
+  border-radius:var(--rl);padding:1.4rem 1.8rem;
+  box-shadow:0 8px 40px rgba(0,0,0,.4);
+}
+.nos-badge-num{font-family:'Cormorant',serif;font-size:2.5rem;font-weight:300;color:var(--cream);line-height:1;}
+.nos-badge-lbl{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cap);margin-top:.2rem;}
+.nos-txt p{font-size:.92rem;font-weight:300;line-height:1.9;color:var(--w4);margin-bottom:1rem;max-width:440px;}
+.nos-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;margin-top:2.5rem;
+  background:rgba(160,120,80,.1);
+  border:1px solid rgba(160,120,80,.12);
+  border-radius:var(--rl);overflow:hidden;
+}
+.ns{
+  background:var(--n1);padding:1.4rem 1rem;text-align:center;
   transition:background .3s;
 }
-.srv:hover{background:var(--n2);}
-.srv-ico{
-  width:40px;height:40px;border-radius:var(--r);
-  border:1px solid var(--n4);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.1rem;margin-bottom:1.2rem;
+.ns:hover{background:var(--n2);}
+.ns-v{font-family:'Cormorant',serif;font-size:2rem;font-weight:300;color:var(--cream);}
+.ns-l{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cap);margin-top:.3rem;}
+
+/* ── SERVICIOS ── */
+#servicios{background:var(--n1);}
+.srv-layout{
+  display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;
 }
-.srv-nom{
-  font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;
-  color:var(--w);margin-bottom:.3rem;
+.srv-foto{
+  position:relative;border-radius:var(--rl);overflow:hidden;height:520px;
 }
-.srv-precio{font-size:1.3rem;font-weight:600;color:var(--gold);margin-bottom:.4rem;}
-.srv-desc{font-size:.75rem;color:var(--w4);line-height:1.55;}
-.srv-nota{
-  margin-top:1.5rem;font-size:.7rem;color:var(--w4);
-  border-top:1px solid var(--n3);padding-top:1rem;
+.srv-foto img{width:100%;height:100%;object-fit:cover;filter:brightness(.75) grayscale(10%);}
+/* Glass overlay en foto */
+.srv-foto-glass{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(6,5,4,.6);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-top:1px solid rgba(160,120,80,.15);
+  padding:1.5rem 1.8rem;
 }
+.srv-foto-glass h3{font-family:'Cormorant',serif;font-size:1.3rem;font-weight:300;color:var(--cream);margin-bottom:.3rem;}
+.srv-foto-glass p{font-size:.75rem;color:var(--w4);line-height:1.6;}
+.srv-lista{display:flex;flex-direction:column;gap:1px;}
+.srv-item{
+  background:var(--n2);border:1px solid var(--n3);
+  border-radius:var(--rl);padding:1.6rem 1.8rem;
+  display:grid;grid-template-columns:1fr auto;align-items:center;
+  gap:1rem;
+  transition:background .3s,border-color .3s,transform .3s;
+}
+.srv-item:hover{background:var(--n3);border-color:rgba(160,120,80,.25);transform:translateX(4px);}
+.srv-l h4{font-family:'Cormorant',serif;font-size:1.2rem;font-weight:400;color:var(--cream);margin-bottom:.2rem;}
+.srv-l p{font-size:.75rem;color:var(--w4);line-height:1.5;}
+.srv-precio{
+  font-family:'Cormorant',serif;font-size:1.6rem;font-weight:300;
+  color:var(--cap-l);white-space:nowrap;
+}
+.srv-nota{font-size:.68rem;color:var(--w4);margin-top:1.2rem;}
 
 /* ── FAQ ── */
-#faq{background:var(--n1);}
-.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--n3);border:1px solid var(--n3);border-radius:var(--rl);overflow:hidden;}
-.faq-item{background:var(--n1);padding:1.8rem 1.6rem;cursor:pointer;transition:background .3s;}
-.faq-item:hover{background:var(--n2);}
+#faq{background:var(--n);}
+.faq-inner{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.faq-item{
+  background:var(--n1);border:1px solid var(--n3);
+  border-radius:var(--rl);padding:1.6rem 1.8rem;
+  cursor:none;transition:background .3s,border-color .3s;
+}
+.faq-item:hover{background:var(--n2);border-color:rgba(160,120,80,.2);}
+.faq-item.open{border-color:rgba(160,120,80,.3);}
 .faq-q{
-  display:flex;justify-content:space-between;align-items:center;
-  font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;
-  color:var(--w);
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  font-family:'Cormorant',serif;font-size:1.05rem;font-weight:400;color:var(--cream);
 }
 .faq-ico{
-  width:22px;height:22px;border-radius:50%;border:1px solid var(--n4);
+  width:22px;height:22px;border-radius:50%;
+  border:1px solid var(--n4);
   display:flex;align-items:center;justify-content:center;
   font-size:.75rem;color:var(--w4);flex-shrink:0;
-  transition:transform .3s,border-color .3s;
+  transition:transform .3s,border-color .3s,color .3s;
 }
-.faq-item.open .faq-ico{transform:rotate(45deg);border-color:var(--gold);}
+.faq-item.open .faq-ico{transform:rotate(45deg);border-color:var(--cap);color:var(--cap-l);}
 .faq-a{
-  font-size:.82rem;color:var(--w4);line-height:1.75;
-  max-height:0;overflow:hidden;transition:max-height .35s ease,margin .35s;
+  font-size:.82rem;font-weight:300;color:var(--w4);line-height:1.8;
+  max-height:0;overflow:hidden;transition:max-height .35s ease,margin .3s;
   margin-top:0;
 }
 .faq-item.open .faq-a{max-height:200px;margin-top:.9rem;}
 
 /* ── GALERÍA ── */
-#galeria{background:var(--n);padding-bottom:4rem;}
+#galeria{background:var(--n1);padding-bottom:4rem;}
 .gal-grid{
-  display:grid;
+  margin-top:3rem;display:grid;
   grid-template-columns:repeat(12,1fr);
   grid-template-rows:300px 220px;
-  gap:6px;margin-top:3rem;
+  gap:8px;
 }
 .gal-grid img{
   width:100%;height:100%;object-fit:cover;
-  filter:grayscale(25%) brightness(.88);
+  filter:grayscale(25%) brightness(.82) saturate(.9);
   border-radius:var(--r);
-  transition:transform .5s,filter .4s;cursor:zoom-in;
+  transition:transform .5s,filter .5s;cursor:none;
 }
-.gal-grid img:hover{transform:scale(1.03);filter:grayscale(0%) brightness(1);}
-.g1{grid-column:span 4;grid-row:span 2;}
+.gal-grid img:hover{transform:scale(1.03);filter:grayscale(0%) brightness(1) saturate(1.1);}
+.g1{grid-column:span 4;grid-row:span 2;border-radius:var(--rl)!important;}
 .g2{grid-column:span 5;}
 .g3{grid-column:span 3;}
 .g4{grid-column:span 3;}
 .g5{grid-column:span 5;}
 
 /* Lightbox */
-.lb{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.96);align-items:center;justify-content:center;}
+.lb{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.97);align-items:center;justify-content:center;}
 .lb.open{display:flex;}
 .lb img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:var(--r);}
-.lb-x{position:absolute;top:1.2rem;right:1.2rem;background:none;border:1px solid rgba(255,255,255,.15);color:#fff;width:38px;height:38px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.lb-x{position:absolute;top:1.5rem;right:1.5rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;width:40px;height:40px;border-radius:50%;font-size:1.1rem;cursor:none;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.lb-x:hover{background:rgba(255,255,255,.12);}
 
 /* ── REELS ── */
-#reels{background:var(--n1);}
+#reels{background:var(--n);}
 .reels-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
 .reel{
   aspect-ratio:9/16;position:relative;border-radius:var(--rl);overflow:hidden;
-  background:var(--n2);border:1px solid var(--n3);cursor:pointer;
-  transition:border-color .3s,transform .3s;
-}
-.reel:hover{border-color:var(--gold);transform:translateY(-4px);}
-.reel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55) grayscale(15%);transition:filter .3s;}
-.reel:hover img{filter:brightness(.7) grayscale(0%);}
-.reel-play{
-  position:relative;z-index:2;width:44px;height:44px;border-radius:50%;
-  background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);
+  background:var(--n2);border:1px solid var(--n3);
+  cursor:none;transition:border-color .4s,transform .4s;
   display:flex;align-items:center;justify-content:center;
-  transition:background .2s,transform .2s;
 }
-.reel:hover .reel-play{background:rgba(255,255,255,.2);transform:scale(1.1);}
-.reel-n{position:absolute;bottom:.8rem;left:1rem;z-index:2;font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:.1em;}
+.reel:hover{border-color:rgba(160,120,80,.3);transform:translateY(-5px);}
+.reel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5) grayscale(20%);transition:filter .4s;}
+.reel:hover img{filter:brightness(.65) grayscale(0%);}
+/* Glass play button */
+.reel-play{
+  position:relative;z-index:2;
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(160,120,80,.15);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(160,120,80,.4);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .3s,transform .3s;
+}
+.reel:hover .reel-play{background:rgba(160,120,80,.25);transform:scale(1.1);}
+.reel-n{
+  position:absolute;bottom:.9rem;left:1rem;z-index:2;
+  font-family:'Cormorant',serif;font-size:.8rem;font-weight:300;
+  color:rgba(240,232,216,.4);letter-spacing:.08em;
+}
 
 /* ── RESEÑAS ── */
-#resenas{background:var(--n);}
-.resenas-header{
-  display:flex;justify-content:space-between;align-items:flex-end;
-  flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem;
+#resenas{background:var(--n1);}
+.res-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem;}
+.r-big{font-family:'Cormorant',serif;font-size:6rem;font-weight:300;color:var(--cream);line-height:1;}
+.r-stars{color:var(--gold);font-size:1rem;letter-spacing:4px;}
+.r-base{font-size:.65rem;color:var(--w4);margin-top:.3rem;letter-spacing:.06em;}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.resena{
+  background:var(--n2);border:1px solid var(--n3);
+  border-radius:var(--rl);padding:2rem;
+  transition:border-color .3s,background .3s;
 }
-.rating-block{text-align:right;}
-.r-big{font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;line-height:1;color:var(--w);}
-.r-stars{color:var(--gold);font-size:1rem;letter-spacing:3px;}
-.r-base{font-size:.68rem;color:var(--w4);margin-top:.2rem;}
-.resenas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--n3);border:1px solid var(--n3);border-radius:var(--rl);overflow:hidden;}
-.resena{background:var(--n1);padding:2rem 1.8rem;transition:background .3s;}
-.resena:hover{background:var(--n2);}
-.res-stars{color:var(--gold);font-size:.82rem;letter-spacing:2px;margin-bottom:1rem;}
-.res-txt{font-size:.87rem;line-height:1.8;color:var(--w4);margin-bottom:1.4rem;font-style:italic;}
+.resena:hover{border-color:rgba(160,120,80,.25);background:var(--n3);}
+.res-s{color:var(--gold);font-size:.8rem;letter-spacing:3px;margin-bottom:1rem;}
+.res-txt{font-family:'Cormorant',serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.8;color:var(--w3);margin-bottom:1.4rem;}
 .res-autor{display:flex;align-items:center;gap:.8rem;}
 .res-av{
   width:36px;height:36px;border-radius:50%;flex-shrink:0;
-  background:var(--n3);border:1px solid var(--n4);
+  background:var(--n4);border:1px solid rgba(160,120,80,.2);
   display:flex;align-items:center;justify-content:center;
-  color:var(--w3);font-size:.72rem;font-weight:600;
+  color:var(--cap-l);font-size:.72rem;font-weight:500;
 }
-.res-nom{font-size:.82rem;font-weight:600;color:var(--w);}
+.res-nom{font-size:.82rem;font-weight:500;color:var(--cream);}
 .res-f{font-size:.65rem;color:var(--w4);}
-.res-badge{display:flex;align-items:center;gap:.4rem;margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--n3);font-size:.62rem;color:var(--w4);}
+.res-badge{display:flex;align-items:center;gap:.4rem;margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--n4);font-size:.6rem;color:var(--w4);}
 .g-dot{width:6px;height:6px;border-radius:50%;background:#4285f4;flex-shrink:0;}
-
-/* ── RESEÑA CTA ── */
-.resena-cta{
+/* Reseña CTA */
+.res-cta{
   margin-top:2rem;
-  background:var(--n1);border:1px solid var(--n3);border-radius:var(--rl);
-  padding:2rem;
+  background:rgba(160,120,80,.06);
+  border:1px solid rgba(160,120,80,.18);
+  border-radius:var(--rl);padding:2rem;
   display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;
 }
-.rcta-txt h3{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--w);margin-bottom:.3rem;}
-.rcta-txt p{font-size:.8rem;color:var(--w4);line-height:1.6;}
+.rcta-h{font-family:'Cormorant',serif;font-size:1.3rem;font-weight:300;color:var(--cream);margin-bottom:.3rem;}
+.rcta-p{font-size:.78rem;color:var(--w4);line-height:1.6;}
 .btn-review{
   display:inline-flex;align-items:center;gap:.6rem;
-  background:var(--w);color:var(--n);
+  border:1px solid rgba(160,120,80,.35);color:var(--cap-l);
   padding:.75rem 1.5rem;border-radius:var(--r);
-  font-size:.78rem;font-weight:600;white-space:nowrap;
-  transition:background .2s,transform .2s;
+  font-size:.75rem;font-weight:400;
+  background:rgba(160,120,80,.08);backdrop-filter:blur(8px);
+  white-space:nowrap;transition:background .2s,border-color .2s;
 }
-.btn-review:hover{background:var(--w2);transform:translateY(-2px);}
+.btn-review:hover{background:rgba(160,120,80,.16);border-color:var(--cap);}
 
 /* ── CONTACTO ── */
-#contacto{background:var(--n1);}
-.contacto-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+#contacto{background:var(--n);}
+.contacto-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start;}
 .info-list{display:flex;flex-direction:column;gap:.9rem;margin-top:1.8rem;}
-.info-row{display:flex;align-items:flex-start;gap:.9rem;font-size:.88rem;line-height:1.65;color:var(--w4);}
+.info-row{display:flex;align-items:flex-start;gap:.9rem;font-size:.87rem;font-weight:300;line-height:1.7;color:var(--w4);}
 .info-ico{
   width:36px;height:36px;flex-shrink:0;border-radius:var(--r);
-  background:var(--n2);border:1px solid var(--n3);
+  background:rgba(160,120,80,.08);border:1px solid rgba(160,120,80,.18);
   display:flex;align-items:center;justify-content:center;font-size:.9rem;
 }
 .info-row a{color:var(--w3);}
-.info-row a:hover{color:var(--w);}
-.barberos-cta{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
-.bcta{background:var(--n2);border:1px solid var(--n3);border-radius:var(--rl);padding:1.4rem;display:flex;flex-direction:column;gap:.9rem;transition:border-color .3s;}
-.bcta:hover{border-color:var(--n4);}
-.bcta-nom{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--w);}
-.bcta-rol{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);}
-.btn-wa-c{
-  display:flex;align-items:center;justify-content:center;gap:.5rem;
-  background:#25d366;color:#fff;
-  padding:.72rem;border-radius:var(--r);
-  font-size:.75rem;font-weight:600;
+.info-row a:hover{color:var(--cream);}
+
+/* Redes con colores propios */
+.redes-row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.2rem;}
+.red-ig{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.55rem 1rem;border-radius:var(--r);font-size:.73rem;font-weight:400;
+  background:linear-gradient(135deg,rgba(131,58,180,.15),rgba(253,29,29,.12),rgba(252,176,69,.12));
+  border:1px solid rgba(225,48,108,.25);color:#e1306c;
   transition:filter .2s,transform .2s;
 }
-.btn-wa-c:hover{filter:brightness(1.1);transform:translateY(-2px);}
-.redes-row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1rem;}
-.red-btn{
-  display:inline-flex;align-items:center;gap:.5rem;
-  border:1px solid var(--n3);color:var(--w4);
-  padding:.52rem .9rem;border-radius:var(--r);
-  font-size:.72rem;background:var(--n2);
-  transition:border-color .2s,color .2s;
+.red-ig:hover{filter:brightness(1.2);transform:translateY(-2px);}
+.red-fb{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.55rem 1rem;border-radius:var(--r);font-size:.73rem;font-weight:400;
+  background:rgba(24,119,242,.1);border:1px solid rgba(24,119,242,.25);color:#4a9cf5;
+  transition:filter .2s,transform .2s;
 }
-.red-btn:hover{border-color:var(--n4);color:var(--w);}
-.mapa-box{border-radius:var(--rl);overflow:hidden;border:1px solid var(--n3);height:380px;}
-.mapa-box iframe{width:100%;height:100%;border:none;filter:grayscale(95%) brightness(.6);}
+.red-fb:hover{filter:brightness(1.2);transform:translateY(-2px);}
+
+.barberos-cta{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
+.bcta{
+  background:var(--n1);border:1px solid var(--n3);
+  border-radius:var(--rl);padding:1.5rem;
+  display:flex;flex-direction:column;gap:.9rem;
+  transition:border-color .3s;
+}
+.bcta:hover{border-color:rgba(160,120,80,.3);}
+.bcta-nom{font-family:'Cormorant',serif;font-size:1.5rem;font-weight:300;color:var(--cream);}
+.bcta-rol{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cap);}
+.btn-wa-c{
+  display:flex;align-items:center;justify-content:center;gap:.55rem;
+  background:#25d366;color:#fff;
+  padding:.72rem;border-radius:var(--r);
+  font-size:.75rem;font-weight:500;
+  box-shadow:0 3px 12px rgba(37,211,102,.18);
+  transition:filter .2s,transform .2s;
+}
+.btn-wa-c:hover{filter:brightness(1.08);transform:translateY(-2px);}
+.mapa-box{
+  border-radius:var(--rl);overflow:hidden;
+  border:1px solid var(--n3);height:400px;
+}
+.mapa-box iframe{width:100%;height:100%;border:none;filter:grayscale(95%) brightness(.55) sepia(20%);}
 
 /* ── FOOTER ── */
 footer{
-  background:var(--n);border-top:1px solid var(--n2);
-  padding:2.5rem;
+  background:var(--n1);
+  border-top:1px solid var(--n3);
+  padding:3rem;
   display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2rem;
 }
-.f-logo{display:flex;align-items:center;gap:.7rem;}
-.f-logo img{width:30px;height:30px;border-radius:50%;object-fit:cover;border:1px solid var(--n3);}
-.f-nom{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;}
-.f-sub{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--w4);}
-.f-copy{font-size:.65rem;color:var(--w4);text-align:center;line-height:1.8;}
+.f-logo{display:flex;align-items:center;gap:.75rem;}
+.f-logo img{width:30px;height:30px;border-radius:50%;object-fit:cover;border:1px solid rgba(160,120,80,.25);}
+.f-nom{font-family:'Cormorant',serif;font-size:1rem;font-weight:400;color:var(--cream);}
+.f-sub{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--w4);}
+.f-copy{font-size:.62rem;color:var(--w4);text-align:center;line-height:1.9;}
 .f-redes{display:flex;justify-content:flex-end;gap:1rem;}
-.f-redes a{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--w4);transition:color .2s;}
-.f-redes a:hover{color:var(--w);}
+.f-redes a{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--w4);transition:color .2s;}
+.f-redes a:hover{color:var(--cap-l);}
 
 /* ── REVEAL ── */
-.rev{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+.rev{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
 .rev.in{opacity:1;transform:none;}
-.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+.d1{transition-delay:.12s;}.d2{transition-delay:.22s;}.d3{transition-delay:.32s;}
 
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
-  .topbar{display:none;}
-  #nav{top:0;}
-  #nav.scrolled{top:0;}
-  #hero{padding-top:62px;}
-  #nav{padding:0 1.2rem;}
+  *{cursor:auto;}
+  .cursor,.cursor-ring{display:none;}
+  #nav{padding:0 1.4rem;}
   .nav-links{display:none;}
   .ham{display:flex;}
-  section{padding:4rem 1.2rem;}
-  #hero{padding-left:1.2rem;padding-right:1.2rem;}
-  .barbero-card{grid-template-columns:1fr;}
-  .bc-foto{height:260px;}
-  .barberos-grid{grid-template-columns:1fr;}
-  .nosotros-inner{grid-template-columns:1fr!important;gap:2rem!important;}
-  .nosotros-inner img{height:280px!important;}
-  .servicios-grid{grid-template-columns:1fr 1fr;}
-  .faq-grid{grid-template-columns:1fr;}
+  section{padding:4.5rem 1.4rem;}
+  #hero{padding-top:70px;}
+  .hero-h1{font-size:clamp(2.8rem,12vw,5rem);}
+  .hero-strip{padding:.75rem 1.4rem;gap:1.2rem;flex-wrap:wrap;justify-content:flex-start;}
+  .scroll-ind{display:none;}
+  .barbero,.barbero.reverse{grid-template-columns:1fr;direction:ltr;}
+  .bc-img{height:280px;}
+  #nosotros{grid-template-columns:1fr;gap:3rem;}
+  .nos-img{height:300px;}
+  .nos-badge{right:.5rem;bottom:1rem;}
+  .srv-layout{grid-template-columns:1fr;gap:2rem;}
+  .srv-foto{height:260px;}
+  .faq-inner{grid-template-columns:1fr;}
   .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
   .g1,.g2,.g3,.g4,.g5{grid-column:span 1;height:190px;border-radius:var(--r)!important;}
   .g1{grid-row:span 1;}
   .reels-grid{grid-template-columns:1fr 1fr;}
-  .resenas-grid{grid-template-columns:1fr;}
-  .resenas-header{flex-direction:column;}
-  .rating-block{text-align:left;}
-  .contacto-grid{grid-template-columns:1fr;gap:2rem;}
+  .res-grid{grid-template-columns:1fr;}
+  .res-top{flex-direction:column;}
+  .contacto-grid{grid-template-columns:1fr;gap:2.5rem;}
   .mapa-box{height:280px;}
+  .barberos-cta{grid-template-columns:1fr;}
   footer{grid-template-columns:1fr;text-align:center;}
   .f-redes,.f-logo{justify-content:center;}
-  .barberos-cta{grid-template-columns:1fr;}
-  .resena-cta{flex-direction:column;}
+  .res-cta{flex-direction:column;}
 }
 @media(max-width:500px){
-  .hero-btns{flex-direction:column;}
-  .btn-prim,.btn-sec{justify-content:center;}
-  .servicios-grid{grid-template-columns:1fr 1fr;}
+  .hero-btns{flex-direction:column;width:100%;}
+  .btn-wa,.btn-out{justify-content:center;}
   .reels-grid{grid-template-columns:1fr 1fr;}
 }
 </style>
 </head>
 <body>
 
-<!-- TOPBAR -->
-<div class="topbar">
-  <div class="topbar-left">
-    <span>⏱ Lun–Dom · 10AM – 10PM</span>
-    <span>📍 AV. San Salvador esq. Sicilia, Chetumal</span>
-  </div>
-  <div class="topbar-right">
-    <a href="tel:+529831040409">983 104 0409</a>
-    <span class="tb-sep">|</span>
-    <a href="https://www.instagram.com/game_overbarb/" target="_blank">@game_overbarb</a>
-  </div>
-</div>
+<!-- Cursor -->
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curR"></div>
 
 <!-- NAV -->
 <nav id="nav">
@@ -528,75 +643,91 @@ footer{
 
 <div class="mob-menu" id="mobMenu">
   <a href="#barberos">Barberos</a>
+  <a href="#nosotros">Nosotros</a>
   <a href="#servicios">Servicios</a>
   <a href="#galeria">Galería</a>
   <a href="#resenas">Reseñas</a>
-  <a href="#contacto" class="mob-cta">Agendar cita</a>
+  <a href="#contacto" class="mob-cta-m">Agendar cita</a>
 </div>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
-  <div class="hero-grad"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-top-line"></div>
+  <div class="hero-bottom-line"></div>
+
   <div class="hero-cont">
-    <p class="eyebrow"><span class="eyebrow-line"></span>Chetumal, Quintana Roo</p>
-    <h1 class="hero-h1">
-      <span>GAME</span>
-      <span class="outline">OVER</span>
-      <span>ESTUDIO</span>
-    </h1>
-    <p class="hero-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <div class="hero-btns">
-      <a href="#contacto" class="btn-prim">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Agendar cita
-      </a>
-      <a href="#galeria" class="btn-sec">Ver trabajos →</a>
+    <div class="hero-ornament">
+      <span class="orn-line"></span>
+      Chetumal, Q.R.
+      <span class="orn-line r"></span>
     </div>
+    <h1 class="hero-h1">
+      GAME OVER<br><span class="italic">Estudio</span>
+    </h1>
+    <p class="hero-sub-title">Barbería · Cortes · Diseños</p>
     <div class="hero-rating">
       <span class="hr-stars">★★★★★</span>
-      <span class="hr-num">5.0</span>
-      <span class="hr-txt">· 3 reseñas en Google Maps</span>
+      <span class="hr-sep"></span>
+      <span class="hr-txt">5.0 · Google Maps</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#contacto" class="btn-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar cita
+      </a>
+      <a href="#galeria" class="btn-out">Ver trabajos →</a>
     </div>
   </div>
-  <div class="scroll-hint"><span class="sh-line"></span>scroll</div>
+
+  <div class="hero-strip">
+    <div class="hstrip-item"><span class="hstrip-icon">⏱</span> Lun–Dom · 10AM – 10PM</div>
+    <div class="hstrip-item"><span class="hstrip-icon">📍</span> AV. San Salvador esq. Sicilia</div>
+    <div class="hstrip-item"><span class="hstrip-icon">📞</span> 983 104 0409</div>
+  </div>
+
+  <div class="scroll-ind">
+    <div class="sind-line"></div>
+    scroll
+  </div>
 </section>
 
 <!-- BARBEROS -->
 <section id="barberos">
-  <div class="section-head rev">
-    <p class="eyebrow-sm">El equipo</p>
-    <h2>Elige tu <span class="dim">barbero</span></h2>
+  <div class="sec-head rev">
+    <p class="etiqueta">El equipo</p>
+    <h2>Elige tu <em>barbero</em></h2>
   </div>
-  <div class="barberos-grid rev d1">
-    <div class="barbero-card">
-      <div class="bc-foto">
-        <img src="go_equipo.jpg" alt="Manuel" loading="lazy">
-      </div>
+  <div class="barberos-wrap rev d1">
+    <div class="barbero">
+      <div class="bc-img"><img src="go_equipo.jpg" alt="Manuel" loading="lazy"></div>
       <div class="bc-info">
         <p class="bc-num">01</p>
         <div>
           <p class="bc-nom">Manuel</p>
           <p class="bc-handle">@_notmanuelx</p>
-          <p class="bc-note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Degradados, diseños y cortes a medida.</p>
-          <a href="https://wa.me/529831040409?text=Hola%20Manuel!%20Vi%20la%20página%20de%20Game%20Over%20y%20quiero%20agendar%20una%20cita%20✂️%0A%0AServicio:%20%0AFecha%20y%20hora%20preferida:" target="_blank" class="btn-wa-bc">
+          <p class="bc-bio" style="margin-top:.8rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Degradados precisos y diseños únicos a medida.</p>
+        </div>
+        <div class="bc-btns">
+          <a href="https://wa.me/529831040409?text=Hola%20Manuel!%20Vi%20la%20página%20de%20Game%20Over%20y%20quiero%20agendar%20una%20cita%20✂️%0A%0AServicio:%20%0AFecha:%20%0AHora%20preferida:" target="_blank" class="btn-wa-bc">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             WhatsApp a Manuel
           </a>
         </div>
       </div>
     </div>
-    <div class="barbero-card">
-      <div class="bc-foto">
-        <img src="go_equipo.jpg" alt="Wilbert" loading="lazy" style="object-position:right center;">
-      </div>
+    <div class="barbero reverse" style="margin-top:1px;">
+      <div class="bc-img"><img src="go_equipo.jpg" alt="Wilbert" loading="lazy" style="object-position:right center;"></div>
       <div class="bc-info">
         <p class="bc-num">02</p>
         <div>
           <p class="bc-nom">Wilbert</p>
           <p class="bc-handle">@wilbert_niram</p>
-          <p class="bc-note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cortes clásicos y tendencias actuales.</p>
-          <a href="https://wa.me/529831913905?text=Hola%20Wilbert!%20Vi%20la%20página%20de%20Game%20Over%20y%20quiero%20agendar%20una%20cita%20✂️%0A%0AServicio:%20%0AFecha%20y%20hora%20preferida:" target="_blank" class="btn-wa-bc">
+          <p class="bc-bio" style="margin-top:.8rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cortes clásicos y tendencias actuales con precisión.</p>
+        </div>
+        <div class="bc-btns">
+          <a href="https://wa.me/529831913905?text=Hola%20Wilbert!%20Vi%20la%20página%20de%20Game%20Over%20y%20quiero%20agendar%20una%20cita%20✂️%0A%0AServicio:%20%0AFecha:%20%0AHora%20preferida:" target="_blank" class="btn-wa-bc">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             WhatsApp a Wilbert
           </a>
@@ -606,77 +737,59 @@ footer{
   </div>
 </section>
 
-<!-- QUIÉNES SOMOS -->
-<section id="nosotros" style="background:var(--n);padding:6rem 2.5rem;">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;" class="nosotros-inner">
-    <div class="rev">
-      <p class="eyebrow-sm">Quiénes somos</p>
-      <h2>Más que una <span class="dim">barbería</span></h2>
-      <p style="font-size:.95rem;font-weight:300;line-height:1.9;color:var(--w4);margin-top:1.2rem;max-width:460px;">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-      </p>
-      <p style="font-size:.95rem;font-weight:300;line-height:1.9;color:var(--w4);margin-top:1rem;max-width:460px;">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      </p>
-      <!-- Stats -->
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:2.5rem;background:var(--n3);border:1px solid var(--n3);border-radius:var(--rl);overflow:hidden;" class="rev d1">
-        <div style="background:var(--n1);padding:1.4rem 1.2rem;text-align:center;">
-          <p style="font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--w);line-height:1;">5.0</p>
-          <p style="font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-top:.3rem;">Estrellas</p>
-        </div>
-        <div style="background:var(--n1);padding:1.4rem 1.2rem;text-align:center;border-left:1px solid var(--n3);">
-          <p style="font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--w);line-height:1;">2</p>
-          <p style="font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-top:.3rem;">Barberos</p>
-        </div>
-        <div style="background:var(--n1);padding:1.4rem 1.2rem;text-align:center;border-left:1px solid var(--n3);">
-          <p style="font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--w);line-height:1;">10h</p>
-          <p style="font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-top:.3rem;">Al día</p>
-        </div>
-      </div>
+<!-- NOSOTROS -->
+<section id="nosotros">
+  <div class="nos-img-wrap rev">
+    <img src="go_local.jpg" alt="Game Over Estudio" class="nos-img" loading="lazy">
+    <div class="nos-badge">
+      <p class="nos-badge-num">5.0★</p>
+      <p class="nos-badge-lbl">Google Maps</p>
     </div>
-    <div class="rev d2" style="position:relative;">
-      <img src="go_local.jpg" alt="Game Over Estudio local" loading="lazy"
-        style="width:100%;height:500px;object-fit:cover;border-radius:var(--rl);filter:grayscale(20%) brightness(.85);">
-      <!-- Badge flotante -->
-      <div style="position:absolute;bottom:1.5rem;left:1.5rem;background:rgba(5,5,5,.92);border:1px solid var(--n3);backdrop-filter:blur(12px);border-radius:var(--rl);padding:1rem 1.4rem;">
-        <p style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem;">Ubicación</p>
-        <p style="font-size:.82rem;font-weight:500;color:var(--w);">Chetumal, Quintana Roo</p>
-        <p style="font-size:.72rem;color:var(--w4);margin-top:.1rem;">AV. San Salvador esq. Sicilia</p>
-      </div>
+  </div>
+  <div class="nos-txt rev d1">
+    <p class="etiqueta">Quiénes somos</p>
+    <h2>Más que una <em>barbería</em></h2>
+    <p style="margin-top:1.2rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    <div class="nos-stats">
+      <div class="ns"><p class="ns-v">5.0</p><p class="ns-l">Estrellas</p></div>
+      <div class="ns"><p class="ns-v">2</p><p class="ns-l">Barberos</p></div>
+      <div class="ns"><p class="ns-v">12h</p><p class="ns-l">Diarias</p></div>
     </div>
   </div>
 </section>
 
 <!-- SERVICIOS -->
 <section id="servicios">
-  <div class="section-head rev">
-    <p class="eyebrow-sm">Precios</p>
-    <h2>Nuestros <span class="dim">servicios</span></h2>
+  <div class="sec-head rev">
+    <p class="etiqueta">Servicios</p>
+    <h2>Nuestros <span class="dim">precios</span></h2>
   </div>
-  <div class="servicios-grid rev d1">
-    <div class="srv">
-      <div class="srv-ico">✂️</div>
-      <p class="srv-nom">Corte clásico</p>
-      <p class="srv-precio">$200</p>
-      <p class="srv-desc">Corte a tijera o máquina con acabado profesional.</p>
+  <div class="srv-layout rev d1">
+    <div class="srv-foto">
+      <img src="go_corte2.jpg" alt="Corte Game Over" loading="lazy">
+      <div class="srv-foto-glass">
+        <h3>Trabajo con precisión</h3>
+        <p>Lorem ipsum dolor sit amet, cada corte es único y personalizado para ti.</p>
+      </div>
     </div>
-    <div class="srv">
-      <div class="srv-ico">🎨</div>
-      <p class="srv-nom">Corte + diseño</p>
-      <p class="srv-precio">$250</p>
-      <p class="srv-desc">Corte con diseño o líneas personalizadas.</p>
-    </div>
-    <div class="srv">
-      <div class="srv-ico">🧔</div>
-      <p class="srv-nom">Barba</p>
-      <p class="srv-precio">$100</p>
-      <p class="srv-desc">Perfilado y arreglo con navaja.</p>
-    </div>
-    <div class="srv">
-      <div class="srv-ico">👦</div>
-      <p class="srv-nom">Corte niño</p>
-      <p class="srv-precio">$150</p>
-      <p class="srv-desc">Para los más pequeños, con paciencia y cuidado.</p>
+    <div class="srv-lista">
+      <div class="srv-item">
+        <div class="srv-l"><h4>Corte clásico</h4><p>Corte a tijera o máquina con acabado profesional</p></div>
+        <span class="srv-precio">$200</span>
+      </div>
+      <div class="srv-item">
+        <div class="srv-l"><h4>Corte + diseño</h4><p>Corte con diseño o líneas personalizadas</p></div>
+        <span class="srv-precio">$250</span>
+      </div>
+      <div class="srv-item">
+        <div class="srv-l"><h4>Barba</h4><p>Perfilado y arreglo con navaja profesional</p></div>
+        <span class="srv-precio">$100</span>
+      </div>
+      <div class="srv-item">
+        <div class="srv-l"><h4>Corte niño</h4><p>Para los más pequeños, con paciencia y cuidado</p></div>
+        <span class="srv-precio">$150</span>
+      </div>
     </div>
   </div>
   <p class="srv-nota">* Confirma precios con tu barbero al agendar.</p>
@@ -684,53 +797,52 @@ footer{
 
 <!-- FAQ -->
 <section id="faq">
-  <div class="section-head rev">
-    <p class="eyebrow-sm">Preguntas frecuentes</p>
-    <h2>Lo que <span class="dim">más preguntan</span></h2>
+  <div class="sec-head rev">
+    <p class="etiqueta">Preguntas frecuentes</p>
+    <h2>Lo que más <em>preguntan</em></h2>
   </div>
-  <div class="faq-grid rev d1">
+  <div class="faq-inner rev d1">
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">¿Necesito cita previa? <span class="faq-ico">+</span></div>
-      <div class="faq-a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.</div>
+      <div class="faq-q">¿Necesito cita previa?<span class="faq-ico">+</span></div>
+      <div class="faq-a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">¿Cuánto tiempo tarda un corte? <span class="faq-ico">+</span></div>
-      <div class="faq-a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.</div>
+      <div class="faq-q">¿Cuánto tiempo tarda un corte?<span class="faq-ico">+</span></div>
+      <div class="faq-a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">¿Aceptan pago con tarjeta? <span class="faq-ico">+</span></div>
-      <div class="faq-a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.</div>
+      <div class="faq-q">¿Aceptan pago con tarjeta?<span class="faq-ico">+</span></div>
+      <div class="faq-a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">¿Hacen cortes para niños? <span class="faq-ico">+</span></div>
-      <div class="faq-a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.</div>
+      <div class="faq-q">¿Hacen cortes para niños?<span class="faq-ico">+</span></div>
+      <div class="faq-a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">¿Puedo llevar foto de referencia? <span class="faq-ico">+</span></div>
-      <div class="faq-a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.</div>
+      <div class="faq-q">¿Puedo llevar foto de referencia?<span class="faq-ico">+</span></div>
+      <div class="faq-a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">¿Tienen estacionamiento? <span class="faq-ico">+</span></div>
-      <div class="faq-a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.</div>
+      <div class="faq-q">¿Tienen estacionamiento?<span class="faq-ico">+</span></div>
+      <div class="faq-a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.</div>
     </div>
   </div>
 </section>
 
 <!-- GALERÍA -->
 <section id="galeria">
-  <div class="section-head rev">
-    <p class="eyebrow-sm">Portafolio</p>
-    <h2>El trabajo <span class="dim">habla</span></h2>
+  <div class="sec-head rev">
+    <p class="etiqueta">Portafolio</p>
+    <h2>El trabajo <em>habla</em></h2>
   </div>
   <div class="gal-grid">
-    <img src="go_local.jpg"  alt="Game Over Estudio" class="g1" onclick="lb(this.src)" loading="lazy">
-    <img src="go_corte1.jpg" alt="Corte"             class="g2" onclick="lb(this.src)" loading="lazy">
-    <img src="go_corte2.jpg" alt="Degradado"         class="g3" onclick="lb(this.src)" loading="lazy">
-    <img src="go_equipo.jpg" alt="Equipo"            class="g4" onclick="lb(this.src)" loading="lazy">
-    <img src="go_corte1.jpg" alt="Trabajo"           class="g5" onclick="lb(this.src)" loading="lazy">
+    <img src="go_local.jpg"  alt="Local Game Over"  class="g1" onclick="lb(this.src)" loading="lazy">
+    <img src="go_corte1.jpg" alt="Corte 1"          class="g2" onclick="lb(this.src)" loading="lazy">
+    <img src="go_corte2.jpg" alt="Corte 2"          class="g3" onclick="lb(this.src)" loading="lazy">
+    <img src="go_equipo.jpg" alt="Equipo"           class="g4" onclick="lb(this.src)" loading="lazy">
+    <img src="go_corte1.jpg" alt="Trabajo"          class="g5" onclick="lb(this.src)" loading="lazy">
   </div>
 </section>
-
 <div class="lb" id="lbx" onclick="cls()">
   <button class="lb-x" onclick="cls()">✕</button>
   <img id="lbimg" src="" alt="">
@@ -738,9 +850,9 @@ footer{
 
 <!-- REELS -->
 <section id="reels">
-  <div class="section-head rev">
-    <p class="eyebrow-sm">Instagram</p>
-    <h2>Míranos <span class="dim">trabajar</span></h2>
+  <div class="sec-head rev">
+    <p class="etiqueta">Instagram</p>
+    <h2>Míranos <em>trabajar</em></h2>
   </div>
   <div class="reels-grid rev d1">
     <a href="https://www.instagram.com/reel/DTGrAdcDn6G/" target="_blank" class="reel">
@@ -764,51 +876,48 @@ footer{
       <p class="reel-n">04</p>
     </a>
   </div>
-  <p style="margin-top:1.5rem;text-align:center;font-size:.75rem;color:var(--w4);">Más en <a href="https://www.instagram.com/game_overbarb/" target="_blank" style="color:var(--w3);">@game_overbarb</a></p>
+  <p style="margin-top:1.5rem;text-align:center;font-size:.72rem;color:var(--w4);">Más en <a href="https://www.instagram.com/game_overbarb/" target="_blank" style="color:var(--cap-l);">@game_overbarb</a></p>
 </section>
 
 <!-- RESEÑAS -->
 <section id="resenas">
-  <div class="resenas-header rev">
+  <div class="res-top rev">
     <div>
-      <p class="eyebrow-sm">Opiniones</p>
-      <h2>5 estrellas <span class="dim">reales</span></h2>
+      <p class="etiqueta">Opiniones</p>
+      <h2>5 estrellas <em>reales</em></h2>
     </div>
-    <div class="rating-block">
+    <div style="text-align:right;">
       <p class="r-big">5.0</p>
       <p class="r-stars">★★★★★</p>
       <p class="r-base">Google Maps · 3 reseñas verificadas</p>
     </div>
   </div>
-  <div class="resenas-grid rev d1">
+  <div class="res-grid rev d1">
     <div class="resena">
-      <p class="res-stars">★★★★★</p>
+      <p class="res-s">★★★★★</p>
       <p class="res-txt">"Excelente trabajo, muy profesionales. El ambiente es único y el corte quedó exactamente como lo pedí."</p>
       <div class="res-autor"><div class="res-av">JR</div><div><p class="res-nom">José R.</p><p class="res-f">Reseña en Google</p></div></div>
       <p class="res-badge"><span class="g-dot"></span>Verificado en Google Maps</p>
     </div>
     <div class="resena">
-      <p class="res-stars">★★★★★</p>
+      <p class="res-s">★★★★★</p>
       <p class="res-txt">"El mejor degradado que me han hecho. Manuel tiene una precisión increíble. El local tiene un vibe muy único."</p>
       <div class="res-autor"><div class="res-av">AL</div><div><p class="res-nom">Alejandro L.</p><p class="res-f">Reseña en Google</p></div></div>
       <p class="res-badge"><span class="g-dot"></span>Verificado en Google Maps</p>
     </div>
     <div class="resena">
-      <p class="res-stars">★★★★★</p>
+      <p class="res-s">★★★★★</p>
       <p class="res-txt">"Wilbert es un crack. Llegué sin saber qué quería y me asesoró perfecto. El resultado superó mis expectativas."</p>
       <div class="res-autor"><div class="res-av">CM</div><div><p class="res-nom">Carlos M.</p><p class="res-f">Reseña en Google</p></div></div>
       <p class="res-badge"><span class="g-dot"></span>Verificado en Google Maps</p>
     </div>
   </div>
-  <!-- CTA reseña post-visita -->
-  <div class="resena-cta rev d2">
-    <div class="rcta-txt">
-      <h3>¿Ya nos visitaste? Déjanos tu opinión</h3>
-      <p>Tu reseña ayuda a otros clientes a encontrarnos. Tarda menos de un minuto y se hace directo desde tu celular.</p>
+  <div class="res-cta rev d2">
+    <div>
+      <p class="rcta-h">¿Ya nos visitaste?</p>
+      <p class="rcta-p">Déjanos tu reseña en Google — tarda menos de un minuto y ayuda a otros a encontrarnos.</p>
     </div>
-    <a href="https://search.google.com/local/writereview?placeid=ChIJ_game_over_chetumal" target="_blank" class="btn-review">
-      ⭐ Dejar reseña en Google
-    </a>
+    <a href="https://search.google.com/local/writereview?placeid=ChIJ_game_over_chetumal" target="_blank" class="btn-review">⭐ Dejar reseña en Google</a>
   </div>
 </section>
 
@@ -816,48 +925,49 @@ footer{
 <section id="contacto">
   <div class="contacto-grid">
     <div class="rev">
-      <p class="eyebrow-sm">Agenda tu cita</p>
-      <h2>Escríbele a tu <span class="dim">barbero</span></h2>
+      <p class="etiqueta">Agenda tu cita</p>
+      <h2>Escríbele a tu <em>barbero</em></h2>
       <div class="info-list">
         <div class="info-row"><span class="info-ico">📍</span><span>AV. San Salvador esq. Sicilia<br>Col. Italia San Salvador, Chetumal Q.R. 77035</span></div>
         <div class="info-row"><span class="info-ico">🕐</span><span>Lunes a Domingo · 10:00 AM – 10:00 PM</span></div>
         <div class="info-row">
           <span class="info-ico">📞</span>
           <div>
-            <a href="tel:+529831040409" style="display:block;">983 104 0409 <span style="font-size:.68rem;color:var(--w4);">Manuel</span></a>
-            <a href="tel:+529831913905" style="display:block;margin-top:3px;color:var(--w4);">983 191 3905 <span style="font-size:.68rem;">Wilbert</span></a>
+            <a href="tel:+529831040409" style="display:block;">983 104 0409 <span style="font-size:.66rem;color:var(--w4);">Manuel</span></a>
+            <a href="tel:+529831913905" style="display:block;margin-top:3px;color:var(--w4);">983 191 3905 <span style="font-size:.66rem;">Wilbert</span></a>
           </div>
         </div>
       </div>
       <div class="redes-row">
-        <a href="https://www.instagram.com/game_overbarb/" target="_blank" class="red-btn">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        <a href="https://www.instagram.com/game_overbarb/" target="_blank" class="red-ig">
+          <!-- Instagram SVG oficial -->
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           @game_overbarb
         </a>
-        <a href="https://www.facebook.com/p/GAME-OVER-chetumal-100068312347244/" target="_blank" class="red-btn">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <a href="https://www.facebook.com/p/GAME-OVER-chetumal-100068312347244/" target="_blank" class="red-fb">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           Facebook
         </a>
       </div>
       <div class="barberos-cta">
         <div class="bcta">
           <div><p class="bcta-nom">Manuel</p><p class="bcta-rol">@_notmanuelx</p></div>
-          <a href="https://wa.me/529831040409?text=Hola%20Manuel!%20Vi%20la%20página%20de%20Game%20Over%20y%20quiero%20agendar%20✂️%0A%0AServicio:%20%0AFecha:%20%0AHora%20preferida:" target="_blank" class="btn-wa-c">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <a href="https://wa.me/529831040409?text=Hola%20Manuel!%20Vi%20la%20página%20de%20Game%20Over%20y%20quiero%20agendar%20✂️%0A%0AServicio:%20%0AFecha:%20%0AHora:" target="_blank" class="btn-wa-c">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Escribir a Manuel
           </a>
         </div>
         <div class="bcta">
           <div><p class="bcta-nom">Wilbert</p><p class="bcta-rol">@wilbert_niram</p></div>
-          <a href="https://wa.me/529831913905?text=Hola%20Wilbert!%20Vi%20la%20página%20de%20Game%20Over%20y%20quiero%20agendar%20✂️%0A%0AServicio:%20%0AFecha:%20%0AHora%20preferida:" target="_blank" class="btn-wa-c">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <a href="https://wa.me/529831913905?text=Hola%20Wilbert!%20Vi%20la%20página%20de%20Game%20Over%20y%20quiero%20agendar%20✂️%0A%0AServicio:%20%0AFecha:%20%0AHora:" target="_blank" class="btn-wa-c">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Escribir a Wilbert
           </a>
         </div>
       </div>
     </div>
     <div class="mapa-box rev d1">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.8!2d-88.3150!3d18.4990!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAv.%20San%20Salvador%20esq.%20Sicilia%2C%20Chetumal%2C%20Q.R.!5e0!3m2!1ses-419!2smx!4v1" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.8!2d-88.3150!3d18.4990!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAv.%20San%20Salvador%20esq.%20Sicilia%2C%20Chetumal!5e0!3m2!1ses-419!2smx!4v1" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -876,9 +986,20 @@ footer{
 </footer>
 
 <script>
-// Nav scroll + topbar hide
+// Cursor
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+function animR(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(animR);}
+animR();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{curR.style.width='48px';curR.style.height='48px';curR.style.borderColor='rgba(160,120,80,.7)';});
+  el.addEventListener('mouseleave',()=>{curR.style.width='32px';curR.style.height='32px';curR.style.borderColor='rgba(196,151,106,.4)';});
+});
+
+// Nav scroll
 const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60),{passive:true});
 
 // Ham
 const ham=document.getElementById('ham'),mob=document.getElementById('mobMenu');
@@ -896,17 +1017,18 @@ function lb(src){document.getElementById('lbimg').src=src;document.getElementByI
 function cls(){document.getElementById('lbx').classList.remove('open');document.body.style.overflow='';}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')cls();});
 
-// FAQ accordion
+// FAQ
 function toggleFaq(el){
-  const wasOpen=el.classList.contains('open');
+  const o=el.classList.contains('open');
   document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-  if(!wasOpen)el.classList.add('open');
+  if(!o)el.classList.add('open');
 }
 
 // Reveal
-document.querySelectorAll('.rev').forEach(el=>{
-  new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');});},{threshold:0.08}).observe(el);
-});
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});
+},{threshold:0.08});
+document.querySelectorAll('.rev').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
